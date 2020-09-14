@@ -1,0 +1,3 @@
+CONFIG_DE5NET=y
+# CONFIG_AGGRESSIVE_OPT is not set
+# CONFIG_STP is not set

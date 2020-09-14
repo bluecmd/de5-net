@@ -1,0 +1,14 @@
+mainmenu "DE5-Net Playground configuration"
+
+config DE5NET
+  bool
+  default y
+  # Always enabled features
+
+config AGGRESSIVE_OPT
+  bool "Optimize aggressively for performance when building"
+
+config STP
+  bool "Enable SignalTap analyzer"
+
+
