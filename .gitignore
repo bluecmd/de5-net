@@ -1,6 +1,7 @@
 # Editor files
 **/*~
-*.qsys
+de5net.qsys
+de5net_sfp.qsys
 **/.*.swp
 **/.*.swo
 .qsys_edit

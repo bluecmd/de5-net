@@ -25,13 +25,10 @@ report:
 	@echo '  ==> Generation report <=='
 	@echo
 	@# 222013 removed because the ch[4] pcie Intel IP bug
-	@# 215044 removed because we have no board thermal model
 	@grep '^Warning (' gen/output_files/*.rpt | \
-		grep -vE '\((10762|170052|15104|332043|35016|12241|276020|14284|20031|18550|12251)\)' | \
+		grep -vE '\((10762|170052|15104|12241|276020|14284|20031|18550|12251)\)' | \
 		grep -vF '(222013)' | \
-		grep -vF '(215044)' | \
 		grep -v  altera_avalon_i2c_csr | \
-		grep -v 'Mm_interconnect_0' | \
 		grep -vE '(jtagm_timing_adt|jtagm_b2p_adapter)' |\
 		grep -vE 'Warning \(10036\).*altera_reset_sequencer' |\
 		echo ' [-] \e[32mNo synthesis warnings! Unbelievable!\e[0m'
@@ -71,7 +68,7 @@ config.tcl: .config config.py
 
 de5net.qsys: .qsys-configured
 
-.qsys-clean: ip/de5net_identity/version.sv
+.qsys-clean: ip/de5net_identity/version.sv de5net.tcl de5net_sfp.tcl
 	# Generate clean platform files
 	rm -f .qsys-configured de5net*.qsys
 	$(QPATH)/sopc_builder/bin/qsys-script --script=de5net_sfp.tcl
